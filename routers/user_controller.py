@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-
+import os
 from fastapi import Depends, HTTPException
 from fastapi.security import APIKeyHeader
 from jose import JWTError, jwt
@@ -7,10 +7,12 @@ from models import RevokedToken, Token, User_det, get_db
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
 from starlette import status
+from dotenv import load_dotenv
+load_dotenv()
 
 # for authenitcating the user
-secret_key = "uisdfh9823h4rh4r8u34smkldnvvkndnoiebviewbufjcancciewc93ueu"
-algorithm = "HS256"
+secret_key = os.getenv("secret_key")
+algorithm = os.getenv("algorithm")
 # api_key = APIKeyHeader(name="Authorization",auto_error=True)
 hashing = CryptContext(schemes=["bcrypt"])
 

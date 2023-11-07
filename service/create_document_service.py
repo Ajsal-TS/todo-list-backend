@@ -7,20 +7,6 @@ from sqlalchemy.exc import SQLAlchemyError
 from datetime import datetime
 
 
-# def created_document(request,id:int,db):
-#     """create the document on request and return the status.
-#     Param:
-#         request:Task schema
-#         db:session of database
-#         id: id of current user
-#     Return:
-#         status:The status of response
-#         message: Response message
-#         error:return the error status
-#     """
-#     doc = Task(name=request.name,content=request.content,user_id=id,status="Not Completed")
-#     db.add(doc)
-#     db.commit()
 def create_task(task_data, db, id: int):
     try:
         new_task = Task(

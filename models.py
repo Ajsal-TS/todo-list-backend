@@ -9,9 +9,11 @@ from sqlalchemy import (
     DateTime,
 )
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
-
-
-engine = create_engine("'postgresql://postdb:postdb616@localhost:5432/taskdb'")
+import os
+from dotenv import load_dotenv
+load_dotenv()
+s=(os.getenv("combined"))
+engine = create_engine(s)
 Session = sessionmaker(bind=engine)
 
 
